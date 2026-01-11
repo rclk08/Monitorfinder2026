@@ -1,33 +1,44 @@
+/**
+ * MonitorFinder 2026 - Interaktive Logik (Lokale Bilder)
+ */
+
 function showProduct(type) {
     const resultBox = document.getElementById('recommendation');
+    
+    // Box sichtbar machen
     resultBox.style.display = 'block';
     
     let title, text, link, img;
 
-    if(type === 'pro') {
-        title = "ASUS ROG Swift OLED PG27 (2026 Edition)";
-        text = "Das Non-Plus-Ultra für Shooter-Spieler. Mit 4K Auflösung und 240Hz OLED-Panel hast du keine Ausreden mehr. Reaktionszeiten im Mikrosekunden-Bereich machen den Unterschied.";
-        link = "#"; // HIER DEINEN AMAZON LINK EINTRAGEN
-        img = "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&q=80&w=600";
-    } else if(type === 'allrounder') {
-        title = "LG UltraGear 27'' OLED";
-        text = "Unsere Empfehlung für Story-Gamer. Perfektes Schwarz, HDR in Perfektion und 144Hz+ sorgen für das immersivste Erlebnis, das man aktuell kaufen kann.";
-        link = "#"; // HIER DEINEN AMAZON LINK EINTRAGEN
-        img = "https://images.unsplash.com/photo-1551645120-d70bfe84c826?auto=format&fit=crop&q=80&w=600";
-    } else {
-        title = "AOC Gaming 27G-Serie";
-        text = "Maximale Leistung für den schmalen Geldbeutel. 165Hz und ein IPS-Panel bieten alles, was man für kompetitives Gaming braucht, ohne die Miete zu opfern.";
-        link = "#"; // HIER DEINEN AMAZON LINK EINTRAGEN
-        img = "https://images.unsplash.com/photo-1547119957-637f8679db1e?auto=format&fit=crop&q=80&w=600";
+    if (type === 'pro') {
+        title = "High-End: ASUS ROG Swift OLED (PG27AQDM)";
+        text = "Das Non-Plus-Ultra für E-Sport. Mit 240Hz, OLED-Panel und einer Reaktionszeit von 0.03ms hast du den ultimativen Vorteil in schnellen Shootern.";
+        link = "#"; 
+        img = "pro.png"; // Deine Datei im Ordner
+    } 
+    else if (type === 'allrounder') {
+        title = "Allrounder: LG UltraGear OLED (27GR95QE)";
+        text = "Die perfekte Wahl für Story-Games und Grafik-Genuss. Dank OLED-Technologie erlebst du echtes Schwarz und extrem lebendige Farben.";
+        link = "#"; 
+        img = "allrounder.png"; // Deine Datei im Ordner
+    } 
+    else if (type === 'budget') {
+        title = "Preis-Leistung: AOC Gaming (27G2SP)";
+        text = "Unschlagbar günstig und trotzdem schnell. 165Hz und ein IPS-Panel bieten alles, was man für flüssiges Gaming braucht, ohne das Budget zu sprengen.";
+        link = "#"; 
+        img = "budget.png"; // Deine Datei im Ordner
     }
 
+    // HTML in die Ergebnis-Box schreiben
     resultBox.innerHTML = `
-        <img src="${img}" alt="${title}">
-        <h2>${title}</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 30px;">${text}</p>
-        <a href="${link}" class="buy-btn" target="_blank">Preis auf Amazon prüfen*</a>
+        <div class="result-content">
+            <img src="${img}" alt="${title}" style="max-width: 100%; height: auto; border-radius: 15px; margin-bottom: 20px;">
+            <h2>${title}</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 25px; color: #94a3b8;">${text}</p>
+            <a href="${link}" class="buy-btn" target="_blank" rel="nofollow">Verfügbarkeit auf Amazon prüfen*</a>
+        </div>
     `;
     
-    // Automatisch zum Ergebnis scrollen
-    resultBox.scrollIntoView({behavior: "smooth"});
+    // Sanftes Scrollen zum Ergebnis
+    resultBox.scrollIntoView({ behavior: "smooth" });
 }
